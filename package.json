@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -e ts,json,mustache src/server.ts",
-    "production": "node -e js,json,mustache build/server.js"
+    "start": "nodemon -e ts,json,mustache src/index.ts",
+    "production": "node -e js,json,mustache build/index.js"
   },
   "author": "Kariel Emanoel Silva Martins",
   "license": "ISC",
