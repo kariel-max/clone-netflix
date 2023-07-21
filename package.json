@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -e js,json,mustache src/server.js"
+    "start": "nodemon -e ts,json,mustache src/server.ts",
+    "production": "node -e js,json,mustache build/server.js"
   },
-  "author": "",
+  "author": "Kariel Emanoel Silva Martins",
   "license": "ISC",
   "dependencies": {
     "@types/express": "^4.17.17",
