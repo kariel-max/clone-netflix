@@ -1,11 +1,12 @@
 import { Router } from "express";
+import fs from 'fs'
 
 import { produtosControllers } from './../controllers';
 
 const router = Router();
 
 router.get( "/", (_, res) => {
-   return res.render('page/index')
+    res.render('../../../views/page/index')
 }) 
 
 router.get('/produtos', produtosControllers.GetAll);
