@@ -10,8 +10,8 @@ router.get( "/", (_, res) => {
     res.render('../../../views/page/index')
 }) 
 
-router.post('/cadastro', usuariosControllers.singIn)
-router.post('/cadastro', usuariosControllers.singUp)
+router.post('/cadastro/singIn', usuariosControllers.singIn)
+router.post('/cadastro/singUp', usuariosControllers.singUp)
 
 router.get('/produtos', produtosControllers.GetAll);
 router.post('/produtos', produtosControllers.Create);
