@@ -6,7 +6,7 @@ const controllers_1 = require("./../controllers");
 const router = (0, express_1.Router)();
 exports.router = router;
 router.get("/", (_, res) => {
-    return res.render('page/index');
+    res.render('../../../views/page/index');
 });
 router.get('/produtos', controllers_1.produtosControllers.GetAll);
 router.post('/produtos', controllers_1.produtosControllers.Create);
