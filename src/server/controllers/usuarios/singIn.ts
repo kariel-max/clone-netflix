@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import * as yup from "yup"
-import { server } from "../../Server";
 
 // construir uma validaçao de email e senha
 
@@ -12,5 +11,5 @@ const schema = yup.object().shape({
 export const singIn = async (req: Request ,res: Response)=> {
     res.render("../../../views/page/pageLogin")
 
-    schema.validate(req.body).then(()=> {console.log('validacao concluida')}).catch()
+    schema.validate(req.body).then(()=> {console.log('validacao concluida')}).catch(()=> {console.log('erro de validacao')})
 }
