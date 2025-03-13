@@ -16,7 +16,7 @@
     </header>
     <main class="mainContainer">
        <section class="form_Passo">
-        <p class="passo">PASSO 1 DE 3</p>
+        <p class="passo">PASSO {{passo}} DE 3</p>
         <h1>
         Bem-vindo(a) de volta!<br>
         É fácil assinar a Netflix.
@@ -25,10 +25,10 @@
 
         <div class="formText">
             <p>Email</p>
-            <p class="strong">kariel@gmail.com</p>
+            <p class="strong">{{email}}</p>
         </div>
 
-        <form class="formPassoInput" action="" method="">
+        <form class="formPassoInput" action="/cadastro/singUp" method="post">
             <input class="inputPasso">
             <a  href="#">Esqueceu a senha?</a>
             <button class="buttonProximoPasso">Próximo</button>

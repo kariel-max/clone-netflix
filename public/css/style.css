@@ -233,8 +233,23 @@ body {
     margin-left: 15px;
 
 }
-
-
+.buttonLoad {
+    margin: auto;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 5px solid #f3f3f3; 
+    border-top: 5px solid #ffffff00; 
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 #aproveiteTv {
     padding: 70px 0px;
     height: auto;

@@ -1,3 +1,4 @@
+const { loadEnvFile } = require("process");
 
 let buttonResposta = false;
 document.querySelectorAll("#Perguntas li").forEach((item)=> {
@@ -16,4 +17,9 @@ document.querySelectorAll("#Perguntas li").forEach((item)=> {
        
     })
 })
+
+// --------------------- button and home page-----------------
+let LoaderDiv = document.getElementById("LoaderDiv");
+// if (LoaderDiv.eve)
+document.querySelector(".borderRed").style.border="2px solid red"
 

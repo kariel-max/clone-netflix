@@ -11,8 +11,8 @@ router.get( "/", (_, res) => {
 }) 
 
 router.post('/cadastro/singIn', usuariosControllers.singIn)
-router.post('/cadastro/singUp', usuariosControllers.singUp)
-router.get('/cadastro/singUp', usuariosControllers.areaCriaçao)
+router.post('/cadastro/singUp', usuariosControllers.singUpEmail)
+// router.get('/cadastro/singUp', usuariosControllers.areaCriaçao)
 
 router.get('/produtos', produtosControllers.GetAll);
 router.post('/produtos', produtosControllers.Create);

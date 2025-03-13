@@ -9,7 +9,7 @@ const schema = yup.object().shape({
 })
 
 export const singIn = async (req: Request ,res: Response)=> {
-    res.render("../../../views/login/pageLogin")
-
-    schema.validate(req.body).then(()=> {console.log('validacao concluida')}).catch(()=> {console.log('erro de validacao')})
+    schema.validate(req.body).then(()=> {
+        res.render("../../../views/login/pageLogin")
+    }).catch(()=> {console.log('erro de validacao')})
 }
