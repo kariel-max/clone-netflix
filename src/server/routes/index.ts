@@ -11,7 +11,10 @@ router.get( "/", (_, res) => {
 }) 
 
 router.post('/cadastro/singIn', usuariosControllers.singIn)
-router.post('/cadastro/singUp', usuariosControllers.singUpEmail)
+router.post('/cadastro/singUpEmail', usuariosControllers.singUpEmail)
+router.post('/cadastro/singUpSenha', usuariosControllers.singUpSenha)
+router.post('/cadastro/paymentPick', usuariosControllers.payment)
+router.post('/cadastro/planform', usuariosControllers.planform)
 // router.get('/cadastro/singUp', usuariosControllers.areaCriaçao)
 
 router.get('/produtos', produtosControllers.GetAll);
