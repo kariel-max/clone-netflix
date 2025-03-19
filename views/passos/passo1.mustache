@@ -25,10 +25,10 @@
 
         <div class="formText">
             <p>Email</p>
-            <p class="strong">{{email}}</p>
+            <p class="strong" value-email="{{email}}">{{email}}</p>
         </div>
 
-        <form class="formPassoInput" action="/cadastro/singUpSenha" method="post">
+        <form class="formPassoInput" action="/cadastro/singUp" method="post">
             <input class="inputPasso" type="Senha" name="Senha">
             <a  href="#">Esqueceu a senha?</a>
             <button class="buttonProximoPasso" type="submit">Próximo</button>
@@ -38,5 +38,8 @@
 
     </main>
     {{>../../../views/partials/footerPassos}}
+    <script>
+    
+    </script>
 </body>
 </html>
