@@ -1,10 +1,11 @@
 import { IUsuario } from "../../models";
 
-export const getByEmail = async (email: string): Promise<IUsuario | Error> => {
+export const getByUser = async (email: string, senha: string): Promise<IUsuario | Error> => {
     try{
         const result = await IUsuario.findOne({
             where: {
-                email: email
+                email: email,
+                senha: senha
             }
         })
         if (result) return result

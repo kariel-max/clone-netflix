@@ -1,6 +1,10 @@
-import { IUsuario } from "../../models";
+// import { IUsuario } from "../../models";
 
-export const create = async ( emailValidado: string, senhaValidada: string)=> {
-    await IUsuario.create({email: emailValidado, senha: senhaValidada});
-    console.log("validação comcluida");
-}
+// export const create = async ( email: string, senha: string)=> {
+//     await IUsuario.create({
+//         name: 'kariel',
+//         email,
+//         senha
+//     });
+//     console.log("validação comcluida");
+// }

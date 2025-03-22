@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import * as yup from "yup"
+import { usuariosProvider } from "../../database/providers/usuarios";
+
 
 // construir uma validaçao de email e senha
 
@@ -9,7 +11,22 @@ const schema = yup.object().shape({
 })
 
 export const singIn = async (req: Request ,res: Response)=> {
-    schema.validate(req.body).then(()=> {
-        res.render("../../../views/login/pageLogin")
-    }).catch(()=> {console.log('erro de validacao')})
+    res.render("../../../views/login/pageLogin")
+    try {
+         const usuario = await schema.validate(req.body)
+         if (usuario) {
+            const getUser = await usuariosProvider.getByUser(usuario.Email, usuario.senha)
+
+            if (getUser instanceof Error) {
+                return res.status(404).json({
+                    errors: {
+                        default: 'Email ou Senha inválido!'
+                    }
+                })
+            }
+            console.log(getUser instanceof Error)
+         }
+    }catch (error) {
+        console.log('error em login')
+    }
 }
