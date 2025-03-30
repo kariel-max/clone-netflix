@@ -7,7 +7,7 @@ server.listen( process.env.PORT, ()=> {
 
 (async ()=> {
     try {
-        await sequelize.sync({force: true}); // use 'alter: true' em prodution
+        await sequelize.sync({alter: true}); // use 'alter: true' em prodution use force: true para a manutenção
         console.log('Banco de dados sincronizado!');
     } catch (error) {
         console.error('erro ao sincronizar banco:', error);
