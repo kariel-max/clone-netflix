@@ -8,21 +8,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const Server_1 = require("./server/Server");
-const sequelize_1 = __importDefault(require("./server/database/Sequelize/sequelize"));
-Server_1.server.listen(process.env.PORT, () => {
-    console.log(' foi conectado!!!');
+exports.main = void 0;
+const main = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    // const api = fetch("https://telaflixapi.com/e/movie?title=tesouro&year=2024").then(response => {
+    //     if (!response.ok) {
+    //         throw new Error('Erro na requisição:' + response.status);
+    //     }
+    //     return response.json();
+    // }).then(data => {
+    //     console.log(data);
+    // }).catch(error => {
+    //     console.error('Error', error);
+    // });
+    res.render("../../../views/home/main", {
+    //  filme: api
+    });
 });
-(() => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        yield sequelize_1.default.sync({ force: true }); // use 'alter: true' em prodution
-        console.log('Banco de dados sincronizado!');
-    }
-    catch (error) {
-        console.error('erro ao sincronizar banco:', error);
-    }
-}))();
+exports.main = main;

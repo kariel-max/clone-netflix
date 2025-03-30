@@ -34,14 +34,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.singIn = void 0;
 const yup = __importStar(require("yup"));
+const usuarios_1 = require("../../database/providers/usuarios");
 // construir uma validaçao de email e senha
 const schema = yup.object().shape({
     Email: yup.string().required('campo obrigatório1').email("deve ser um Email válido"),
     senha: yup.string().required('campo obrigatório2').min(4, "deve ter no minimo 8 caracters")
 });
 const singIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    schema.validate(req.body).then(() => {
-        res.render("../../../views/login/pageLogin");
-    }).catch(() => { console.log('erro de validacao'); });
+    res.render("../../../views/login/pageLogin");
+    try {
+        const usuario = yield schema.validate(req.body);
+        if (usuario) {
+            const getUser = yield usuarios_1.usuariosProvider.getByUser(usuario.Email, usuario.senha);
+            if (getUser instanceof Error) {
+                return res.status(404).json({
+                    errors: {
+                        default: 'Email ou Senha inválido!'
+                    }
+                });
+            }
+            console.log(getUser instanceof Error);
+        }
+    }
+    catch (error) {
+        console.log('error em login');
+    }
 });
 exports.singIn = singIn;

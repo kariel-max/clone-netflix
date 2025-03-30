@@ -8,21 +8,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const Server_1 = require("./server/Server");
-const sequelize_1 = __importDefault(require("./server/database/Sequelize/sequelize"));
-Server_1.server.listen(process.env.PORT, () => {
-    console.log(' foi conectado!!!');
-});
-(() => __awaiter(void 0, void 0, void 0, function* () {
+exports.getByUser = void 0;
+const models_1 = require("../../models");
+const getByUser = (email, senha) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield sequelize_1.default.sync({ force: true }); // use 'alter: true' em prodution
-        console.log('Banco de dados sincronizado!');
+        const result = yield models_1.IUsuario.findOne({
+            where: {
+                email: email,
+                senha: senha
+            }
+        });
+        if (result)
+            return result;
+        return new Error('Registro não encotrado');
     }
     catch (error) {
-        console.error('erro ao sincronizar banco:', error);
+        console.log(error);
+        return new Error('Error ao consultar o registro');
     }
-}))();
+});
+exports.getByUser = getByUser;

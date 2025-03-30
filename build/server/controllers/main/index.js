@@ -23,7 +23,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.usuariosProvider = void 0;
-// import * as create from './create';
-const getByEmail = __importStar(require("./GetByUser"));
-exports.usuariosProvider = Object.assign({}, getByEmail);
+exports.mainControlle = void 0;
+const main = __importStar(require("./main"));
+exports.mainControlle = Object.assign({}, main);

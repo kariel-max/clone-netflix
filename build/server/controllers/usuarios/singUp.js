@@ -32,21 +32,30 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.singUpSenha = exports.singUpEmail = void 0;
+exports.autenticar = exports.singUpSenha = exports.singUpEmail = void 0;
 const yup = __importStar(require("yup"));
+const models_1 = require("../../database/models");
+const dadosTemporarios = {};
 const schemaEmail = yup.object().shape({
     Email: yup.string().required('Campo email é obrigatório').email("Deve ser um email válido")
 });
 const singUpEmail = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        schemaEmail.validate(req.body).then(() => {
+        const { Email } = yield schemaEmail.validate(req.body);
+        const id = req.ip;
+        if (!dadosTemporarios[id])
+            dadosTemporarios[id] = {};
+        dadosTemporarios[id].email = Email;
+        if (Email) {
             res.render("../../../views/passos/passo1", {
                 email: req.body["Email"]
             });
-        });
+        }
+        ;
+        console.log("dados do email armazenados!");
     }
-    catch (erro) {
-        res.redirect("/");
+    catch (error) {
+        res.status(400).json({ Erro: error });
     }
 });
 exports.singUpEmail = singUpEmail;
@@ -55,13 +64,44 @@ const schemaSenha = yup.object().shape({
 });
 const singUpSenha = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        schemaSenha.validate(req.body).then(() => {
+        const { Senha } = yield schemaSenha.validate(req.body);
+        const id = req.ip;
+        if (!dadosTemporarios[id])
+            dadosTemporarios[id] = {};
+        dadosTemporarios[id].senha = Senha;
+        if (Senha) {
             res.render("../../../views/passos/passo2");
-        });
+        }
+        ;
+        console.log("dados da senha armazenados!");
     }
-    catch (erro) {
-        res.redirect("/");
-        console.log('erro em senha');
+    catch (error) {
+        res.status(400).json({ Erro: error });
     }
 });
 exports.singUpSenha = singUpSenha;
+const autenticar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = req.ip;
+    const dados = dadosTemporarios[id];
+    if (!dados || !dados.email || !dados.senha) {
+        return res.status(400).json({ erro: "Email ou senha ausentes. certinfique-se de enviar ambos " });
+    }
+    try {
+        const usuario = yield models_1.IUsuario.create({
+            name: 'kariel',
+            email: dados.email,
+            senha: dados.senha
+        });
+        if (usuario) {
+            res.render("../../../views/passos/planform");
+            yield usuario.save();
+        }
+        else {
+            res.status(401).json({ erro: "Email ou senha inválidos!" });
+        }
+    }
+    catch (error) {
+        res.status(500).json({ erro: "erro interno no Servidor." });
+    }
+});
+exports.autenticar = autenticar;
