@@ -1,11 +1,3 @@
-
-// export interface IUsuario {
-//     id: Number;
-//     name: String;
-//     email: String;
-//     senha: String;
-// }
-
 import {  Model, DataTypes } from 'sequelize';
 import sequelize from '../Sequelize/sequelize';
 
