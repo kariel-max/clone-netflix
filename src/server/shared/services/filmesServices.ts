@@ -1,1 +1,0 @@
-// fazer vinculo com tmdb

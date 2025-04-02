@@ -9,11 +9,11 @@ server.listen( process.env.PORT, ()=> {
     try {
         await sequelize.authenticate();
         console.log('Conexão bem-sucedida!');
-        await sequelize.sync({force: true}); // use 'alter: true' em prodution use force: true para a manutenção
+        await sequelize.sync({force: true});
         console.log('Banco de dados sincronizado!');
     } catch (error) {
         console.error('erro ao sincronizar banco:', error);
     } finally {
-        await sequelize.close();
+        await sequelize.close(); 
     }
 })();

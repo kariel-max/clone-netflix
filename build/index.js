@@ -19,10 +19,15 @@ Server_1.server.listen(process.env.PORT, () => {
 });
 (() => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield sequelize_1.default.sync({ alter: true }); // use 'alter: true' em prodution use force: true para a manutenção
+        yield sequelize_1.default.authenticate();
+        console.log('Conexão bem-sucedida!');
+        yield sequelize_1.default.sync({ force: true });
         console.log('Banco de dados sincronizado!');
     }
     catch (error) {
         console.error('erro ao sincronizar banco:', error);
+    }
+    finally {
+        yield sequelize_1.default.close();
     }
 }))();

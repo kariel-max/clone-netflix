@@ -11,18 +11,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.main = void 0;
 const main = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    // const api = fetch("https://telaflixapi.com/e/movie?title=tesouro&year=2024").then(response => {
-    //     if (!response.ok) {
-    //         throw new Error('Erro na requisição:' + response.status);
-    //     }
-    //     return response.json();
-    // }).then(data => {
-    //     console.log(data);
-    // }).catch(error => {
-    //     console.error('Error', error);
-    // });
-    res.render("../../../views/home/main", {
-    //  filme: api
-    });
+    res.render("../../../views/home/main", {});
 });
 exports.main = main;

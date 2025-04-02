@@ -1,10 +1,4 @@
 "use strict";
-// export interface IUsuario {
-//     id: Number;
-//     name: String;
-//     email: String;
-//     senha: String;
-// }
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };

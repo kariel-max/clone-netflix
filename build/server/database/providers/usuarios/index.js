@@ -24,6 +24,5 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.usuariosProvider = void 0;
-// import * as create from './create';
 const getByEmail = __importStar(require("./GetByUser"));
 exports.usuariosProvider = Object.assign({}, getByEmail);
