@@ -1,5 +1,5 @@
 import {RequestHandler} from "express";
 
 export const payment: RequestHandler = (req, res)=> {
-    res.render("../../../views/passos/paymentPicker")
+    res.render("../../../public/views/passos/paymentPicker")
 }

@@ -11,7 +11,7 @@ const schema = yup.object().shape({
 })
 
 export const singIn = async (req: Request ,res: Response)=> {
-    res.render("../../../views/login/pageLogin")
+    res.render("../../../public/views/login/pageLogin")
     try {
          const usuario = await schema.validate(req.body)
          if (usuario) {
