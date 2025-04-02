@@ -8,7 +8,7 @@ import { mainControlle } from "../controllers/main";
 const router = Router();
 
 router.get( "/", (_, res) => {
-    res.render('../../../public/views/home/index')
+    res.render('../../../views/home/index')
 }) 
 
 router.post('/cadastro/singIn', usuariosControllers.singIn)
