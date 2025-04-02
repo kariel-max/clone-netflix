@@ -1,2 +1,7 @@
 [build]
-publish = "build"
+publish = "public"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.mustache"
+  status = 200
