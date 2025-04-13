@@ -1,6 +1,5 @@
 import {RequestHandler} from "express";
 import * as yup from 'yup';
-import { usuariosProvider } from "../../database/providers/usuarios";
 import { IUsuario } from "../../database/models";
 
 const dadosTemporarios: Record<string, { email?: string; senha?: string }> = {};
@@ -61,13 +60,14 @@ export const autenticar: RequestHandler = async (req, res) => {
             email: dados.email,
             senha: dados.senha
         });
+        console.log(usuario)
         if (usuario) {
             res.render("../../../views/passos/planform");
-            await usuario.save();
           } else {
             res.status(401).json({ erro: "Email ou senha inválidos!" });
           }
     } catch (error) {
+        console.error("Erro ao criar usuário", error)
         res.status(500).json({erro: "erro interno no Servidor."});
     }
 }

@@ -3,7 +3,7 @@ import sequelize from '../Sequelize/sequelize';
 
 export class IUsuario extends Model {
     public id!: number;
-    public nome!: string;
+    public name!: string;
     public email!: string;
     public senha!: string;
     public createdAt!: Date;
@@ -23,12 +23,10 @@ IUsuario.init({
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
     },
     senha: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
     }
 }, {
     sequelize,

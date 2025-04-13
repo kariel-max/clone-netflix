@@ -7,7 +7,7 @@ const usuarios_1 = require("../controllers/usuarios");
 const main_1 = require("../controllers/main");
 const router = (0, express_1.Router)();
 exports.router = router;
-router.get("cloneflixkariel.netlify.app", (_, res) => {
+router.get("/", (_, res) => {
     res.render('../../../views/home/index');
 });
 router.post('/cadastro/singIn', usuarios_1.usuariosControllers.singIn);
