@@ -11,6 +11,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.main = void 0;
 const main = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.render("../../../views/home/main");
+     res.sendFile(path.join(__dirname, '../../../views', 'home', 'main.html'));
 });
 exports.main = main;
