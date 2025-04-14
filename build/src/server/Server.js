@@ -10,7 +10,6 @@ const routes_1 = require("./routes");
 const path_1 = __importDefault(require("path"));
 const server = (0, express_1.default)();
 exports.server = server;
-server.use(express_1.default.static(path_1.default.join(__dirname, 'views')))
 server.use('public', express_1.default.static(path_1.default.join(__dirname, 'public')));
 server.use(express_1.default.static('public'));
 server.use(routes_1.router);
