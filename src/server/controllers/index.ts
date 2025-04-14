@@ -1,4 +1,3 @@
-export * from './produtos';
-export * from './usuarios'
+export * from './main';
 
 
