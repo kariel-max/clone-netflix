@@ -1,5 +1,5 @@
 import { Router } from "express";
-import fs from 'fs'
+import path from "path";
 
 import { produtosControllers } from './../controllers';
 import { usuariosControllers } from "../controllers/usuarios";
@@ -8,7 +8,7 @@ import { mainControlle } from "../controllers/main";
 const router = Router();
 
 router.get( "/", (_, res) => {
-    res.render('../../../views/home/index')
+    res.sendFile(path.join(__dirname, '../../../index.html'))
 }) 
 
 router.post('/cadastro/singIn', usuariosControllers.singIn)
