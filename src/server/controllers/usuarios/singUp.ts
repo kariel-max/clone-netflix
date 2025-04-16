@@ -17,9 +17,7 @@ export const singUpEmail:RequestHandler = async (req,res)=> {
         if (!dadosTemporarios[id]) dadosTemporarios[id] = {};
         dadosTemporarios[id].email = Email
         if (Email) {
-            res.render("../../../views/passos/passo1", {
-                email: req.body["Email"]
-            })
+            res.send('rotar create!!!')
         };
         console.log("dados do email armazenados!")
     } catch(error) {
@@ -41,7 +39,7 @@ export const singUpSenha:RequestHandler = async (req,res) => {
         if (!dadosTemporarios[id]) dadosTemporarios[id] = {};
         dadosTemporarios[id].senha = Senha;
         if (Senha) {
-            res.render("../../../views/passos/passo2")
+            res.send('rotar create!!!')
         };
         console.log("dados da senha armazenados!")
     } catch(error) {
@@ -62,7 +60,7 @@ export const autenticar: RequestHandler = async (req, res) => {
             senha: dados.senha
         });
         if (usuario) {
-            res.render("../../../views/passos/planform");
+            res.send('rotar create!!!')
             await usuario.save();
           } else {
             res.status(401).json({ erro: "Email ou senha inválidos!" });
