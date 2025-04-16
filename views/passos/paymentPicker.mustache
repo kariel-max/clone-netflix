@@ -12,7 +12,21 @@
 
 <body style="background-color:white">
     <header style="padding: 0px 15px; border-bottom: 1px solid black; margin-bottom: 50px" >
-    {{>../../../views/partials/headerPassos}}
+   <section id="area-header">
+    <div id="section-logo-netflix"> <img src="/image/netflix-logo.png"></div>
+    <div id="section-rigth">
+        <div id="select-idioma">
+            <div class="internet"></div>
+            <select name="" id="idioma">
+                <option value="">Português</option>
+                <option value="">English</option>
+            </select>
+            <div class="seta-para-baixo"></div>
+        </div>
+
+    <form  action="/cadastro/singIn" method="post">
+    <a href=""><button class="buttonEntrar" type="submit">Entrar</button></a> </form>
+</section>
     </header>
     <main class="mainContainer">
         <section id="sectionPayment">
@@ -48,6 +62,30 @@
         
         </section>
     </main>
-    {{>../../../views/partials/footerPassos}}
+    <footer>
+    <section class="conteudo" >
+        <div id="title-footer">Dúvidas? Ligue <a href="#">0800 591 8942</a></div>
+        <ul>
+            <li><a href="#">Perguntas frequentes</a></li>
+            <li><a href="#">Central de Ajuda</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+            <li><a href="#">Preferências de cookies</a></li>
+            <li><a href="#">Informações corporativas</a></li>
+            <li><a href="#">Privacidade</a></li>
+            
+        </ul>
+        <div class="select-idioma-footer">
+            <div id="select-idioma">
+                <div class="internet"></div>
+                <select name="" id="idioma">
+                    <option value="">Português</option>
+                    <option value="">English</option>
+                </select>
+                <div class="seta-para-baixo"></div>
+            </div>
+        </div>
+        <p>Netflix Brasil</p>
+    </section>
+</footer>
 </body>
 </html>
