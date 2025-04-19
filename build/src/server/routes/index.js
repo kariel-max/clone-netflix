@@ -12,7 +12,7 @@ const main_1 = require("../controllers/main");
 const router = (0, express_1.Router)();
 exports.router = router;
 router.get("/", (_, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../../../views', 'index.html'));
+    res.sendFile(path_1.default.join(__dirname, '../../../index.html'));
 });
 router.post("/cadastro/singUpEmail", usuarios_1.usuariosControllers.singUpEmail);
 router.post('/cadastro/singIn', usuarios_1.usuariosControllers.singIn);
