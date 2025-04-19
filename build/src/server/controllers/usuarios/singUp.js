@@ -62,7 +62,7 @@ const singUpEmail = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             dadosTemporarios[id] = {};
         dadosTemporarios[id].email = Email;
         if (Email) {
-            res.sendFile(path_1.default.join(__dirname, '../../../../views', 'passo1.html'));
+            res.sendFile(path_1.default.join(__dirname, '../../../../passo1.html'));
         }
         ;
         console.log("dados do email armazenados!");
@@ -84,7 +84,7 @@ const singUpSenha = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             dadosTemporarios[id] = {};
         dadosTemporarios[id].senha = Senha;
         if (Senha) {
-            res.sendFile(path_1.default.join(__dirname, '../../../../views', 'passo2.html'));
+            res.sendFile(path_1.default.join(__dirname, '../../../../passo2.html'));
         }
         ;
         console.log("dados da senha armazenados!");
@@ -107,7 +107,7 @@ const autenticar = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             senha: dados.senha
         });
         if (usuario) {
-            res.sendFile(path_1.default.join(__dirname, '../../../../views', 'planform.html'));
+            res.sendFile(path_1.default.join(__dirname, '../../../../planform.html'));
             yield usuario.save();
         }
         else {

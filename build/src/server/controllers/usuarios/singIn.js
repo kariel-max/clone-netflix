@@ -55,7 +55,7 @@ const schema = yup.object().shape({
     senha: yup.string().required('campo obrigatório2').min(4, "deve ter no minimo 8 caracters")
 });
 const singIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.sendFile(path_1.default.join(__dirname, '../../../views', 'pageLogin.html'));
+    res.sendFile(path_1.default.join(__dirname, '../../../../pageLogin.html'));
     try {
         const usuario = yield schema.validate(req.body);
         if (usuario) {

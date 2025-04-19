@@ -12,7 +12,7 @@ const schema = yup.object().shape({
 })
 
 export const singIn = async (req: Request ,res: Response)=> {
-    res.sendFile(path.join(__dirname,'../../../views', 'pageLogin.html'))
+    res.sendFile(path.join(__dirname,'../../../../pageLogin.html'))
     try {
          const usuario = await schema.validate(req.body)
          if (usuario) {
