@@ -10,12 +10,16 @@ const router = Router();
 router.get( "/", (_, res) => {
     res.sendFile(path.join(__dirname,'../../../views', 'index.html'))
 }) 
+router.post( "/cadastro/singUpEmail", usuariosControllers.singUpEmail) 
 
 router.post('/cadastro/singIn', usuariosControllers.singIn)
 router.get('/cadastro/singIn', usuariosControllers.singIn)
 
-router.post('/cadastro/singUpEmail', usuariosControllers.singUpEmail)
+router.get('/cadastro/singUpSenha', (_, res) => {
+    res.sendFile(path.join(__dirname,'../../../views', 'passo1.html'))
+})
 router.post('/cadastro/singUpSenha', usuariosControllers.singUpSenha)
+
 router.post('/cadastro/singUp', usuariosControllers.autenticar)
 
 router.post('/cadastro/paymentPick', usuariosControllers.payment)

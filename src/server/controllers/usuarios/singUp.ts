@@ -1,7 +1,7 @@
 import {RequestHandler} from "express";
 import * as yup from 'yup';
-import { usuariosProvider } from "../../database/providers/usuarios";
 import { IUsuario } from "../../database/models";
+import path from "path";
 
 const dadosTemporarios: Record<string, { email?: string; senha?: string }> = {};
 
@@ -10,14 +10,14 @@ const dadosTemporarios: Record<string, { email?: string; senha?: string }> = {};
  })
 
 export const singUpEmail:RequestHandler = async (req,res)=> {
-
+    console.log(req.body)
     try {
-        const { Email } = await schemaEmail.validate(req.body);
+        const { Email } = await schemaEmail.validate(req.body)
         const id = req.ip;
         if (!dadosTemporarios[id]) dadosTemporarios[id] = {};
         dadosTemporarios[id].email = Email
         if (Email) {
-            res.send('rotar create!!!')
+            res.sendFile(path.join(__dirname,'../../../../views', 'passo1.html'))
         };
         console.log("dados do email armazenados!")
     } catch(error) {
@@ -32,6 +32,7 @@ const schemaSenha = yup.object().shape({
 
 export const singUpSenha:RequestHandler = async (req,res) => {
     
+    console.log(req.body)
     try {
         const { Senha } = await schemaSenha.validate(req.body);
 
@@ -39,7 +40,7 @@ export const singUpSenha:RequestHandler = async (req,res) => {
         if (!dadosTemporarios[id]) dadosTemporarios[id] = {};
         dadosTemporarios[id].senha = Senha;
         if (Senha) {
-            res.send('rotar create!!!')
+            res.sendFile(path.join(__dirname,'../../../../views', 'passo2.html'))
         };
         console.log("dados da senha armazenados!")
     } catch(error) {
@@ -60,7 +61,7 @@ export const autenticar: RequestHandler = async (req, res) => {
             senha: dados.senha
         });
         if (usuario) {
-            res.send('rotar create!!!')
+            res.sendFile(path.join(__dirname,'../../../../views', 'planform.html'))
             await usuario.save();
           } else {
             res.status(401).json({ erro: "Email ou senha inválidos!" });

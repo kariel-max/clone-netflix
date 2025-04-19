@@ -41,15 +41,20 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.autenticar = exports.singUpSenha = exports.singUpEmail = void 0;
 const yup = __importStar(require("yup"));
 const models_1 = require("../../database/models");
+const path_1 = __importDefault(require("path"));
 const dadosTemporarios = {};
 const schemaEmail = yup.object().shape({
     Email: yup.string().required('Campo email é obrigatório').email("Deve ser um email válido")
 });
 const singUpEmail = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(req.body);
     try {
         const { Email } = yield schemaEmail.validate(req.body);
         const id = req.ip;
@@ -57,7 +62,7 @@ const singUpEmail = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             dadosTemporarios[id] = {};
         dadosTemporarios[id].email = Email;
         if (Email) {
-            res.send('rotar create!!!');
+            res.sendFile(path_1.default.join(__dirname, '../../../../views', 'passo1.html'));
         }
         ;
         console.log("dados do email armazenados!");
@@ -71,6 +76,7 @@ const schemaSenha = yup.object().shape({
     Senha: yup.string().required("campo senha obrigatorio").min(4, "precisar de no mínimo 4 digítos")
 });
 const singUpSenha = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(req.body);
     try {
         const { Senha } = yield schemaSenha.validate(req.body);
         const id = req.ip;
@@ -78,7 +84,7 @@ const singUpSenha = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
             dadosTemporarios[id] = {};
         dadosTemporarios[id].senha = Senha;
         if (Senha) {
-            res.send('rotar create!!!');
+            res.sendFile(path_1.default.join(__dirname, '../../../../views', 'passo2.html'));
         }
         ;
         console.log("dados da senha armazenados!");
@@ -101,7 +107,7 @@ const autenticar = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
             senha: dados.senha
         });
         if (usuario) {
-            res.send('rotar create!!!');
+            res.sendFile(path_1.default.join(__dirname, '../../../../views', 'planform.html'));
             yield usuario.save();
         }
         else {

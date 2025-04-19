@@ -12,11 +12,14 @@ const main_1 = require("../controllers/main");
 const router = (0, express_1.Router)();
 exports.router = router;
 router.get("/", (_, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../../../index.html'));
+    res.sendFile(path_1.default.join(__dirname, '../../../views', 'index.html'));
 });
+router.post("/cadastro/singUpEmail", usuarios_1.usuariosControllers.singUpEmail);
 router.post('/cadastro/singIn', usuarios_1.usuariosControllers.singIn);
 router.get('/cadastro/singIn', usuarios_1.usuariosControllers.singIn);
-router.post('/cadastro/singUpEmail', usuarios_1.usuariosControllers.singUpEmail);
+router.get('/cadastro/singUpSenha', (_, res) => {
+    res.sendFile(path_1.default.join(__dirname, '../../../views', 'passo1.html'));
+});
 router.post('/cadastro/singUpSenha', usuarios_1.usuariosControllers.singUpSenha);
 router.post('/cadastro/singUp', usuarios_1.usuariosControllers.autenticar);
 router.post('/cadastro/paymentPick', usuarios_1.usuariosControllers.payment);

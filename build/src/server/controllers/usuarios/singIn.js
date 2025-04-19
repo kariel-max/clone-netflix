@@ -41,17 +41,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.singIn = void 0;
 const yup = __importStar(require("yup"));
 const usuarios_1 = require("../../database/providers/usuarios");
+const path_1 = __importDefault(require("path"));
 // construir uma validaçao de email e senha
 const schema = yup.object().shape({
     Email: yup.string().required('campo obrigatório1').email("deve ser um Email válido"),
     senha: yup.string().required('campo obrigatório2').min(4, "deve ter no minimo 8 caracters")
 });
 const singIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send('rotar create!!!');
+    res.sendFile(path_1.default.join(__dirname, '../../../views', 'pageLogin.html'));
     try {
         const usuario = yield schema.validate(req.body);
         if (usuario) {
