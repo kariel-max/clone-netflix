@@ -17,9 +17,6 @@ router.get("/", (_, res) => {
 router.post("/cadastro/singUpEmail", usuarios_1.usuariosControllers.singUpEmail);
 router.post('/cadastro/singIn', usuarios_1.usuariosControllers.singIn);
 router.get('/cadastro/singIn', usuarios_1.usuariosControllers.singIn);
-router.get('/cadastro/singUpSenha', (_, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../../../views', 'passo1.html'));
-});
 router.post('/cadastro/singUpSenha', usuarios_1.usuariosControllers.singUpSenha);
 router.post('/cadastro/singUp', usuarios_1.usuariosControllers.autenticar);
 router.post('/cadastro/paymentPick', usuarios_1.usuariosControllers.payment);

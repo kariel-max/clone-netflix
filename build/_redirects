@@ -1,1 +1,7 @@
-/*    /index.html   200
+/    /index.html   200
+/main   /main.html 200
+/cadastro/singUpSenha   /passo1.html 200
+/cadastro/singIn    /pageLogin.html 200
+/cadastro/singUp    /passo2.html 200
+/cadastro/paymentPick   /paymentPicker.html 200
+/cadastro/planform  /planform.html 200
