@@ -38,6 +38,6 @@ export const singUp:RequestHandler = async (req,res)=> {
 
 
 export const autenticar: RequestHandler = async (req, res) => {
-    res.redirect(path.join(__dirname,'../../../../planform.html'))
+    res.sendFile(path.join(__dirname,'../../../../passo2.html'))
       
 }

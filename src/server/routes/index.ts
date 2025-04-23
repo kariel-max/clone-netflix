@@ -13,7 +13,6 @@ router.get( "/", (_, res) => {
 router.get( "/cadastro", usuariosControllers.cadastro) 
 
 router.post('/cadastro/singIn', usuariosControllers.singIn)
-router.get('/cadastro/singIn', usuariosControllers.singIn)
 
 router.post('/cadastro/singUp', usuariosControllers.singUp)
 
