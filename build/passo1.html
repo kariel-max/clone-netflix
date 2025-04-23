@@ -38,8 +38,12 @@
         <p>Informe sua senha para começar a assistir.</p>
 
         <form class="formPassoInput" action="/cadastro/singUp" method="post">
-            <input class="inputPasso" type="email" name="Email">
-            <input class="inputPasso" type="senha" name="Senha">
+            <label for="email">Email:</label>
+            <input class="inputPasso" id="email" type="email" name="Email">
+
+            <label for="senha">Senha:</label>
+            <input class="inputPasso" id="senha" type="password" name="Senha">
+
             <a  href="#">Esqueceu a senha?</a>
             <button class="buttonProximoPasso" type="submit">Próximo</button>
         </form>
