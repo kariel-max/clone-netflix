@@ -27,6 +27,7 @@ export const singUp:RequestHandler = async (req,res)=> {
         
         if (usuario) {
             res.redirect('/cadastro/autenticar')
+            await usuario.save()
           } else {
             res.status(401).json({ erro: "Email ou senha inválidos!" });
             return

@@ -1,5 +1,6 @@
 import {RequestHandler} from "express";
+import path from "path";
 
 export const payment: RequestHandler = (req, res)=> {
-    res.send('rotar create!!!')
+    res.sendFile(path.join(__dirname, '../../../../paymentPicker.html'))
 }
