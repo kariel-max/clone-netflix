@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix Brasil - assistir a séries online, assistir a filmes online</title>
-    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="shortcut icon" href="https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.ico">
 </head>
 
@@ -35,15 +35,16 @@
                         <p>Assista onde quiser. Cancele quando quiser.</p>
                         <div id="login-inicial">
                             <h3>Quer assistir? Informe seu email para criar ou reiniciar sua assinatura.</h3>
-
-
-                            <form action="/cadastro" method="post">
+                           
                                 <div id="input-inicial">
-
-                                    <input type="email" name="Email" value=""  id="inputDaPaginaInicial" placeholder="Email">
-                                    <button type="submit" id="LoaderDiv" >Vamos lá <img src="/public/image/seta-para-direita.png"></button>
+                                    <a href="/cadastro">
+                                        <button type="submit" id="LoaderDiv" >
+                                            Vamos lá 
+                                            <img src="/public/image/seta-para-direita.png">
+                                        </button>
+                                    </a>
                                 </div>
-                            </form>
+                    
 
 
                         </div>

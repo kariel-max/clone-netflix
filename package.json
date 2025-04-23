@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon -e ts,json,mustache src/index.ts",
     "build": "node build/src/index.js",
-    "production": "node render-mustache.js",
+    "production": "nodemon -e js,json,html build/src/index.js",
     "preproduction": "tsc"
   },
   "author": "Kariel Emanoel Silva Martins",

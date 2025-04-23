@@ -14,11 +14,11 @@ exports.router = router;
 router.get("/", (_, res) => {
     res.sendFile(path_1.default.join(__dirname, '../../../index.html'));
 });
-router.post("/cadastro/singUpEmail", usuarios_1.usuariosControllers.singUpEmail);
+router.get("/cadastro", usuarios_1.usuariosControllers.cadastro);
 router.post('/cadastro/singIn', usuarios_1.usuariosControllers.singIn);
 router.get('/cadastro/singIn', usuarios_1.usuariosControllers.singIn);
-router.post('/cadastro/singUpSenha', usuarios_1.usuariosControllers.singUpSenha);
-router.post('/cadastro/singUp', usuarios_1.usuariosControllers.autenticar);
+router.post('/cadastro/singUp', usuarios_1.usuariosControllers.singUp);
+router.get('/cadastro/autenticar', usuarios_1.usuariosControllers.autenticar);
 router.post('/cadastro/paymentPick', usuarios_1.usuariosControllers.payment);
 router.post('/cadastro/planform', usuarios_1.usuariosControllers.planform);
 router.get('/main', main_1.mainControlle.main);

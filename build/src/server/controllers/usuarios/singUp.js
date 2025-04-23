@@ -45,69 +45,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.autenticar = exports.singUpSenha = exports.singUpEmail = void 0;
+exports.autenticar = exports.singUp = exports.cadastro = void 0;
 const yup = __importStar(require("yup"));
 const models_1 = require("../../database/models");
 const path_1 = __importDefault(require("path"));
-const dadosTemporarios = {};
 const schemaEmail = yup.object().shape({
-    Email: yup.string().required('Campo email é obrigatório').email("Deve ser um email válido")
-});
-const singUpEmail = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.body);
-    try {
-        const { Email } = yield schemaEmail.validate(req.body);
-        const id = req.ip;
-        if (!dadosTemporarios[id])
-            dadosTemporarios[id] = {};
-        dadosTemporarios[id].email = Email;
-        if (Email) {
-            res.sendFile(path_1.default.join(__dirname, '../../../../passo1.html'));
-        }
-        ;
-        console.log("dados do email armazenados!");
-    }
-    catch (error) {
-        res.status(400).json({ Erro: error });
-    }
-});
-exports.singUpEmail = singUpEmail;
-const schemaSenha = yup.object().shape({
+    Email: yup.string().required('Campo email é obrigatório').email("Deve ser um email válido"),
     Senha: yup.string().required("campo senha obrigatorio").min(4, "precisar de no mínimo 4 digítos")
 });
-const singUpSenha = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const cadastro = (req, res) => {
+    res.sendFile(path_1.default.join(__dirname, '../../../../passo1.html'));
+};
+exports.cadastro = cadastro;
+const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     console.log(req.body);
-    try {
-        const { Senha } = yield schemaSenha.validate(req.body);
-        const id = req.ip;
-        if (!dadosTemporarios[id])
-            dadosTemporarios[id] = {};
-        dadosTemporarios[id].senha = Senha;
-        if (Senha) {
-            res.sendFile(path_1.default.join(__dirname, '../../../../passo2.html'));
-        }
-        ;
-        console.log("dados da senha armazenados!");
-    }
-    catch (error) {
-        res.status(400).json({ Erro: error });
-    }
-});
-exports.singUpSenha = singUpSenha;
-const autenticar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const id = req.ip;
-    const dados = dadosTemporarios[id];
-    if (!dados || !dados.email || !dados.senha) {
+    const dados = yield schemaEmail.validate(req.body);
+    if (!dados || !dados.Email || !dados.Senha) {
         return res.status(400).json({ erro: "Email ou senha ausentes. certinfique-se de enviar ambos " });
     }
     try {
         const usuario = yield models_1.IUsuario.create({
             name: 'kariel',
-            email: dados.email,
-            senha: dados.senha
+            email: dados.Email,
+            senha: dados.Senha
         });
         if (usuario) {
-            res.sendFile(path_1.default.join(__dirname, '../../../../planform.html'));
+            res.redirect(path_1.default.join(__dirname, '../../../../passo2.html'));
             yield usuario.save();
         }
         else {
@@ -117,5 +80,9 @@ const autenticar = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     catch (error) {
         res.status(500).json({ erro: "erro interno no Servidor." });
     }
+});
+exports.singUp = singUp;
+const autenticar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.redirect(path_1.default.join(__dirname, '../../../../planform.html'));
 });
 exports.autenticar = autenticar;
