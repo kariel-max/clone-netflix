@@ -54,7 +54,7 @@ const schemaEmail = yup.object().shape({
     Senha: yup.string().required("campo senha obrigatorio").min(4, "precisar de no mínimo 4 digítos")
 });
 const cadastro = (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../../../../passo1.html'));
+    res.sendFile(path_1.default.join(__dirname, '../../../../cadastro.html'));
 };
 exports.cadastro = cadastro;
 const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -83,6 +83,6 @@ const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.singUp = singUp;
 const autenticar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.redirect(path_1.default.join(__dirname, '../../../../planform.html'));
+    res.sendFile(path_1.default.join(__dirname, '../../../../passo2.html'));
 });
 exports.autenticar = autenticar;

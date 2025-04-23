@@ -16,7 +16,6 @@ router.get("/", (_, res) => {
 });
 router.get("/cadastro", usuarios_1.usuariosControllers.cadastro);
 router.post('/cadastro/singIn', usuarios_1.usuariosControllers.singIn);
-router.get('/cadastro/singIn', usuarios_1.usuariosControllers.singIn);
 router.post('/cadastro/singUp', usuarios_1.usuariosControllers.singUp);
 router.get('/cadastro/autenticar', usuarios_1.usuariosControllers.autenticar);
 router.post('/cadastro/paymentPick', usuarios_1.usuariosControllers.payment);
