@@ -2,12 +2,10 @@ import {  Model, DataTypes } from 'sequelize';
 import sequelize from '../Sequelize/sequelize';
 
 export class IUsuario extends Model {
-    public id!: number;
-    public name!: string;
-    public email!: string;
-    public senha!: string;
-    public createdAt!: Date;
-    public updatedAt!: Date;
+    public id?: number;
+    public name?: string;
+    public email?: string;
+    public senha?: string;
 }
 
 IUsuario.init({
@@ -18,8 +16,9 @@ IUsuario.init({
     },
     name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true // Ajuste conforme necessário
     },
+    
     email: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -28,7 +27,6 @@ IUsuario.init({
     senha: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
     }
 }, {
     sequelize,

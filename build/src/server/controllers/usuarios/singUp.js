@@ -58,7 +58,7 @@ const cadastro = (req, res) => {
 };
 exports.cadastro = cadastro;
 const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.body);
+    res.sendFile(path_1.default.join(__dirname, '../../../../passo1.html'));
     const dados = yield schemaEmail.validate(req.body);
     if (!dados || !dados.Email || !dados.Senha) {
         return res.status(400).json({ erro: "Email ou senha ausentes. certinfique-se de enviar ambos " });
@@ -69,6 +69,7 @@ const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             email: dados.Email,
             senha: dados.Senha
         });
+        
         if (usuario) {
             res.redirect(path_1.default.join(__dirname, '../../../../passo2.html'));
             yield usuario.save();
