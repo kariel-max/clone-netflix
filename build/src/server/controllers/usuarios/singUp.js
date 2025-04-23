@@ -58,26 +58,24 @@ const cadastro = (req, res) => {
 };
 exports.cadastro = cadastro;
 const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.sendFile(path_1.default.join(__dirname, '../../../../passo1.html'));
-    const dados = yield schema.validate(req.body);
-    if (!dados || !dados.Email || !dados.Senha) {
-        return res.status(400).json({ erro: "Email ou senha ausentes. certinfique-se de enviar ambos " });
-    }
     try {
+        const dados = yield schema.validate(req.body);
+        if (!dados || !dados.Email || !dados.Senha) {
+            return res.status(400).json({ erro: "Email ou senha ausentes. certinfique-se de enviar ambos " });
+        }
         const usuario = yield models_1.IUsuario.create({
             email: dados.Email,
             senha: dados.Senha
         });
-        console.log('Usuario criado:', usuario);
         if (usuario) {
             res.redirect('/cadastro/autenticar');
         }
         else {
             res.status(401).json({ erro: "Email ou senha inválidos!" });
+            return;
         }
     }
     catch (error) {
-        console.error('Erro ao criar usuário:', error);
         res.status(500).json({ erro: "erro interno no Servidor." });
     }
 });

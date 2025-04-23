@@ -16,7 +16,7 @@ IUsuario.init({
     },
     name: {
         type: DataTypes.STRING,
-        allowNull: true // Ajuste conforme necessário
+        allowNull: true
     },
     
     email: {

@@ -27,7 +27,4 @@ Server_1.server.listen(process.env.PORT, () => {
     catch (error) {
         console.error('erro ao sincronizar banco:', error);
     }
-    finally {
-        yield sequelize_1.default.close();
-    }
 }))();

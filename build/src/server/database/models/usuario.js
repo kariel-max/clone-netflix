@@ -17,7 +17,7 @@ IUsuario.init({
     },
     name: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: true // Ajuste conforme necessário
+        allowNull: true
     },
     email: {
         type: sequelize_1.DataTypes.STRING,
