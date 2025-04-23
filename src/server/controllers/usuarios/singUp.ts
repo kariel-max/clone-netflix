@@ -9,7 +9,7 @@ import path from "path";
  })
 
 export const cadastro:RequestHandler = (req, res)=> {
-    res.sendFile(path.join(__dirname,'../../../../passo1.html'))
+    res.sendFile(path.join(__dirname,'../../../../cadastro.html'))
 }
 
 export const singUp:RequestHandler = async (req,res)=> {
