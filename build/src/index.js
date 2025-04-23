@@ -21,7 +21,7 @@ Server_1.server.listen(process.env.PORT, () => {
     try {
         yield sequelize_1.default.authenticate();
         console.log('Conexão bem-sucedida!');
-        yield sequelize_1.default.sync({ alter: true });
+        yield sequelize_1.default.sync({ force: true });
         console.log('Banco de dados sincronizado!');
     }
     catch (error) {

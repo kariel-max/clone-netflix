@@ -17,7 +17,7 @@ IUsuario.init({
     },
     name: {
         type: sequelize_1.DataTypes.STRING,
-        allowNull: false,
+        allowNull: true // Ajuste conforme necessário
     },
     email: {
         type: sequelize_1.DataTypes.STRING,
@@ -27,7 +27,6 @@ IUsuario.init({
     senha: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
-        unique: true
     }
 }, {
     sequelize: sequelize_2.default,

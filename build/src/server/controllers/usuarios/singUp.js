@@ -49,7 +49,7 @@ exports.autenticar = exports.singUp = exports.cadastro = void 0;
 const yup = __importStar(require("yup"));
 const models_1 = require("../../database/models");
 const path_1 = __importDefault(require("path"));
-const schemaEmail = yup.object().shape({
+const schema = yup.object().shape({
     Email: yup.string().required('Campo email é obrigatório').email("Deve ser um email válido"),
     Senha: yup.string().required("campo senha obrigatorio").min(4, "precisar de no mínimo 4 digítos")
 });
@@ -59,26 +59,25 @@ const cadastro = (req, res) => {
 exports.cadastro = cadastro;
 const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.sendFile(path_1.default.join(__dirname, '../../../../passo1.html'));
-    const dados = yield schemaEmail.validate(req.body);
+    const dados = yield schema.validate(req.body);
     if (!dados || !dados.Email || !dados.Senha) {
         return res.status(400).json({ erro: "Email ou senha ausentes. certinfique-se de enviar ambos " });
     }
     try {
         const usuario = yield models_1.IUsuario.create({
-            name: 'kariel',
             email: dados.Email,
             senha: dados.Senha
         });
-        
+        console.log('Usuario criado:', usuario);
         if (usuario) {
-            res.redirect(path_1.default.join(__dirname, '../../../../passo2.html'));
-            yield usuario.save();
+            res.redirect('/cadastro/autenticar');
         }
         else {
             res.status(401).json({ erro: "Email ou senha inválidos!" });
         }
     }
     catch (error) {
+        console.error('Erro ao criar usuário:', error);
         res.status(500).json({ erro: "erro interno no Servidor." });
     }
 });
