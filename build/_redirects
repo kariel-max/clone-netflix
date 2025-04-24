@@ -1,0 +1,7 @@
+/    /index.html   200
+/main   /main.html 200
+/cadastro   /cadastro.html 200
+/cadastro/form   /passo1.html 200
+/cadastro/singIn    /pageLogin.html 200
+/cadastro/autenticar    /passo2.html 200
+/cadastro/paymentPick   /paymentPicker.html 200
