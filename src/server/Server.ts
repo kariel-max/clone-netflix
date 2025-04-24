@@ -8,12 +8,11 @@ import cors from "cors"
 const server = express();
 
 server.use(cors({
-    origin: "https://680939b022c94500087fea33--cloneflixkariel.netlify.app",
+    origin: "cloneflixkariel.netlify.app",
     methods: ['GET', 'POST']
 }))
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }));
-server.set('views', path.join(__dirname, 'view'));
 server.use('public', express.static(path.join(__dirname, 'public')))
 server.use(express.static('public'))
 

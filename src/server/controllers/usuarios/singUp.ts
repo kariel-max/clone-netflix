@@ -1,6 +1,6 @@
 import {RequestHandler} from "express";
 import * as yup from 'yup';
-import { IUsuario } from "../../database/models";
+import { IUsuario } from "../../database/models/usuario";
 import path from "path";
 
  const schema = yup.object().shape({

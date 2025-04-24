@@ -47,7 +47,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.autenticar = exports.singUp = exports.getForm = exports.cadastro = void 0;
 const yup = __importStar(require("yup"));
-const models_1 = require("../../database/models");
+const usuario_1 = require("../../database/models/usuario");
 const path_1 = __importDefault(require("path"));
 const schema = yup.object().shape({
     Email: yup.string().required('Campo email é obrigatório').email("Deve ser um email válido"),
@@ -67,7 +67,7 @@ const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         if (!dados || !dados.Email || !dados.Senha) {
             return res.status(400).json({ erro: "Email ou senha ausentes. certinfique-se de enviar ambos " });
         }
-        const usuario = yield models_1.IUsuario.create({
+        const usuario = yield usuario_1.IUsuario.create({
             email: dados.Email,
             senha: dados.Senha
         });

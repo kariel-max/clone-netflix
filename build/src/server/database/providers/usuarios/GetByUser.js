@@ -10,10 +10,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getByUser = void 0;
-const models_1 = require("../../models");
+const usuario_1 = require("../../models/usuario");
 const getByUser = (email, senha) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const result = yield models_1.IUsuario.findOne({
+        const result = yield usuario_1.IUsuario.findOne({
             where: {
                 email: email,
                 senha: senha

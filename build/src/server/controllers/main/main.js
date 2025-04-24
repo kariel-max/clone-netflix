@@ -15,6 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.main = void 0;
 const path_1 = __importDefault(require("path"));
 const main = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.sendFile(path_1.default.join(__dirname, '../../../views', 'main.html'));
+    res.sendFile(path_1.default.join(__dirname, '../../../../main.html'));
 });
 exports.main = main;

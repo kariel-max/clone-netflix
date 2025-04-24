@@ -8,22 +8,16 @@ const express_1 = __importDefault(require("express"));
 require("dotenv/config");
 const routes_1 = require("./routes");
 const path_1 = __importDefault(require("path"));
-<<<<<<< HEAD
-const server = (0, express_1.default)();
-exports.server = server;
-=======
 const body_parser_1 = __importDefault(require("body-parser"));
 const cors_1 = __importDefault(require("cors"));
 const server = (0, express_1.default)();
 exports.server = server;
 server.use((0, cors_1.default)({
-    origin: "https://cloneflixkariel.netlify.app",
+    origin: "cloneflixkariel.netlify.app",
     methods: ['GET', 'POST']
 }));
 server.use(body_parser_1.default.json());
 server.use(body_parser_1.default.urlencoded({ extended: true }));
-server.set('views', path_1.default.join(__dirname, 'view'));
->>>>>>> preview
 server.use('public', express_1.default.static(path_1.default.join(__dirname, 'public')));
 server.use(express_1.default.static('public'));
 server.use(routes_1.router);
