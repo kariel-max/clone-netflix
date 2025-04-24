@@ -13,7 +13,7 @@ const cors_1 = __importDefault(require("cors"));
 const server = (0, express_1.default)();
 exports.server = server;
 server.use((0, cors_1.default)({
-    origin: "https://680939b022c94500087fea33--cloneflixkariel.netlify.app",
+    origin: "https://cloneflixkariel.netlify.app",
     methods: ['GET', 'POST']
 }));
 server.use(body_parser_1.default.json());
