@@ -9,7 +9,6 @@ exports.router = router;
 router.get("/", (_, res) => {
     res.sendFile(path.join(__dirname, '../../../index.html'));
 });
-=======
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };

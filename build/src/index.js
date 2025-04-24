@@ -1,11 +1,4 @@
 "use strict";
-<<<<<<< HEAD
-Object.defineProperty(exports, "__esModule", { value: true });
-const Server_1 = require("./server/Server");
-Server_1.server.listen(process.env.PORT, () => {
-    console.log(' foi conectado!!!');
-});
-=======
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -28,11 +21,10 @@ Server_1.server.listen(process.env.PORT, () => {
     try {
         yield sequelize_1.default.authenticate();
         console.log('Conexão bem-sucedida!');
-        yield sequelize_1.default.sync({ alter: true });
+        yield sequelize_1.default.sync({ force: true });
         console.log('Banco de dados sincronizado!');
     }
     catch (error) {
         console.error('erro ao sincronizar banco:', error);
     }
 }))();
->>>>>>> preview
