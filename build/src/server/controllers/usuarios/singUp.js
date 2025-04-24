@@ -45,7 +45,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.autenticar = exports.singUp = exports.cadastro = void 0;
+exports.autenticar = exports.singUp = exports.getForm = exports.cadastro = void 0;
 const yup = __importStar(require("yup"));
 const models_1 = require("../../database/models");
 const path_1 = __importDefault(require("path"));
@@ -57,6 +57,10 @@ const cadastro = (req, res) => {
     res.sendFile(path_1.default.join(__dirname, '../../../../cadastro.html'));
 };
 exports.cadastro = cadastro;
+const getForm = (req, res) => {
+    res.sendFile(path_1.default.join(__dirname, '../../../../passo1.html'));
+};
+exports.getForm = getForm;
 const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const dados = yield schema.validate(req.body);

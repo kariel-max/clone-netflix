@@ -14,6 +14,7 @@ router.get( "/cadastro", usuariosControllers.cadastro)
 
 router.post('/cadastro/singIn', usuariosControllers.singIn)
 
+router.get('/cadastro/form', usuariosControllers.getForm)
 router.post('/cadastro/singUp', usuariosControllers.singUp)
 
 router.get('/cadastro/autenticar', usuariosControllers.autenticar)
