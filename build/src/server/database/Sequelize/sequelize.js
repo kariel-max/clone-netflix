@@ -16,4 +16,4 @@ const sequelize = new sequelize_1.Sequelize({
         },
     },
 });
-exports.default = sequelize;
+exports.default = (sequelize);

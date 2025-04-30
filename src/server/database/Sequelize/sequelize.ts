@@ -1,5 +1,5 @@
-import { Sequelize } from "sequelize"
- 
+import {Sequelize} from "sequelize"
+
 const sequelize = new Sequelize({
     database: process.env.PG_DB,
     username: process.env.PG_USER,
@@ -9,11 +9,10 @@ const sequelize = new Sequelize({
     dialect: 'postgres',
     ssl: true,
     dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
+        ssl: {
+            require: true,
+            rejectUnauthorized: false,
         },
     },
 })
-
- export default sequelize
+export default (sequelize)
