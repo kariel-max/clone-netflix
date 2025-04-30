@@ -1,0 +1,4 @@
+services:
+ - name: meu-servico
+   build_command: yarn install
+   run_command: yarn run build

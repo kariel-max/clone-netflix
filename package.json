@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -e ts,json,mustache src/index.ts",
+    "start": "nodemon -e ts,json src/index.ts",
     "build": "node build/src/index.js",
     "production": "nodemon -e js,json,html build/src/index.js",
     "preproduction": "tsc"
