@@ -3,7 +3,13 @@
       { "src": "package.json", "use": "@vercel/static-build" }
     ],
     "rewrites": [
-        { "source": "/", "destination": "/index.html" }
+        { "source": "/(.*)", "destination": "/index.html" },
+        { "source": "/cadastro", "destination": "cadastro.html" },
+        { "source": "/main", "destination": "/main.html" },
+        { "source": "/form", "destination": "/passo1.html" },
+        { "source": "/cadastro/autenticar", "destination": "/passo2.html" },
+        { "source": "/cadastro/paymentPick", "destination": "/paymentPick.html" },
+        { "source": "/cadastro/planform", "destination": "/planform.html" } 
    ]
   }
   
