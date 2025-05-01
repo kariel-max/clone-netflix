@@ -14,7 +14,6 @@
   "dependencies": {
     "@types/express": "^4.17.17",
     "@types/node": "^20.4.2",
-    "@vercel/static-build": "^2.7.7",
     "body-parser": "^1.20.2",
     "connect-flash": "^0.1.1",
     "cors": "^2.8.5",
