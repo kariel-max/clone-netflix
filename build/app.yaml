@@ -1,7 +1,0 @@
-routes:
-  - path: /
-    document: index.html
-  - path: /cadastro
-    document: cadastro.html
-  - path: /form
-    document: passo1.html
