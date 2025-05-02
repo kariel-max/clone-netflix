@@ -9,13 +9,8 @@ require("dotenv/config");
 const routes_1 = require("./routes");
 const path_1 = __importDefault(require("path"));
 const body_parser_1 = __importDefault(require("body-parser"));
-const cors_1 = __importDefault(require("cors"));
 const server = (0, express_1.default)();
 exports.server = server;
-server.use((0, cors_1.default)({
-    origin: "cloneflixkariel.netlify.app",
-    methods: ['GET', 'POST']
-}));
 server.use(body_parser_1.default.json());
 server.use(body_parser_1.default.urlencoded({ extended: true }));
 server.use('public', express_1.default.static(path_1.default.join(__dirname, 'public')));
