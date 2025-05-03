@@ -18,6 +18,6 @@ router.post('/cadastro/singIn', usuarios_1.usuariosControllers.singIn);
 router.get('/cadastro/form', usuarios_1.usuariosControllers.getForm);
 router.post('/cadastro/singUp', usuarios_1.usuariosControllers.singUp);
 router.get('/cadastro/autenticar', usuarios_1.usuariosControllers.autenticar);
-router.post('/cadastro/paymentPick', usuarios_1.usuariosControllers.payment);
-router.post('/cadastro/planform', usuarios_1.usuariosControllers.planform);
+router.get('/cadastro/paymentPick', usuarios_1.usuariosControllers.payment);
+router.get('/cadastro/planform', usuarios_1.usuariosControllers.planform);
 router.get('/main', main_1.mainControlle.main);
