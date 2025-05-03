@@ -18,8 +18,8 @@ router.post('/cadastro/singUp', usuariosControllers.singUp)
 
 router.get('/cadastro/autenticar', usuariosControllers.autenticar)
 
-router.post('/cadastro/paymentPick', usuariosControllers.payment)
-router.post('/cadastro/planform', usuariosControllers.planform)
+router.get('/cadastro/paymentPick', usuariosControllers.payment)
+router.get('/cadastro/planform', usuariosControllers.planform)
 
 
 router.get('/main', mainControlle.main)
