@@ -73,7 +73,6 @@ const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
         if (usuario) {
             res.redirect('/cadastro/autenticar');
-            yield usuario.save();
         }
         else {
             res.status(401).json({ erro: "Email ou senha inválidos!" });
@@ -86,6 +85,6 @@ const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.singUp = singUp;
 const autenticar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.sendFile(path_1.default.join(__dirname, '../../../../passo2.html'));
+    res.sendFile(path_1.default.join(__dirname, '../../../../autenticar.html'));
 });
 exports.autenticar = autenticar;

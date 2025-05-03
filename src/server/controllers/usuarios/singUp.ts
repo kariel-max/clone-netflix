@@ -44,6 +44,6 @@ export const singUp:RequestHandler = async (req,res)=> {
 
 
 export const autenticar: RequestHandler = async (req, res) => {
-    res.sendFile(path.join(__dirname,'../../../../passo2.html'))
+    res.sendFile(path.join(__dirname,'../../../../autenticar.html'))
       
 }
