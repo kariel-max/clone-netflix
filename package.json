@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "nodemon -e ts,json src/index.ts",
-    "start": "node build/src/index.js",
+    "start": "node index.js",
     "production": "nodemon -e js,json,html build/src/index.js",
     "preproduction": "tsc"
   },
