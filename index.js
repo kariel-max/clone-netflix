@@ -28,8 +28,4 @@ Server_1.server.listen(port, '0.0.0.0', () => {
     catch (error) {
         console.error('erro ao sincronizar banco:', error);
     }
-    finally {
-        yield sequelize_1.default.close();
-        console.log('pronto!!');
-    }
 }))();
