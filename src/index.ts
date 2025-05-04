@@ -1,8 +1,10 @@
 import { server } from "./server/Server";
 import sequelize from "./server/database/Sequelize/sequelize";
 
-server.listen( process.env.PORT, ()=> {
-    console.log(' foi conectado!!!');
+const port = Number(process.env.PORT || 8080)
+
+server.listen(port, '0.0.0.0', () => {
+    console.log('Servidor conectado!');
 });
 
 (async ()=> {

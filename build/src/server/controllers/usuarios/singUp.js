@@ -73,6 +73,7 @@ const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         });
         if (usuario) {
             res.redirect('/cadastro/autenticar');
+            yield usuario.save();
         }
         else {
             res.status(401).json({ erro: "Email ou senha inválidos!" });

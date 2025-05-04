@@ -14,8 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Server_1 = require("./server/Server");
 const sequelize_1 = __importDefault(require("./server/database/Sequelize/sequelize"));
-Server_1.server.listen(process.env.PORT, () => {
-    console.log(' foi conectado!!!');
+const port = Number(process.env.PORT || 8080);
+Server_1.server.listen(port, '0.0.0.0', () => {
+    console.log('Servidor conectado!');
 });
 (() => __awaiter(void 0, void 0, void 0, function* () {
     try {
