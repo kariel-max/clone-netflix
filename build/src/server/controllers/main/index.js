@@ -35,4 +35,6 @@ var __importStar = (this && this.__importStar) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.mainControlle = void 0;
 const main = __importStar(require("./main"));
-exports.mainControlle = Object.assign({}, main);
+exports.mainControlle = {
+    ...main,
+};

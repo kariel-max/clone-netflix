@@ -38,4 +38,9 @@ const payment = __importStar(require("./payment"));
 const planform = __importStar(require("./planform"));
 const singIn = __importStar(require("./singIn"));
 const singUp = __importStar(require("./singUp"));
-exports.usuariosControllers = Object.assign(Object.assign(Object.assign(Object.assign({}, singIn), singUp), payment), planform);
+exports.usuariosControllers = {
+    ...singIn,
+    ...singUp,
+    ...payment,
+    ...planform
+};

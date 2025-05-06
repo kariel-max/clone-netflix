@@ -32,15 +32,6 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -54,12 +45,12 @@ const schema = yup.object().shape({
     Email: yup.string().required('campo obrigatório1').email("deve ser um Email válido"),
     senha: yup.string().required('campo obrigatório2').min(4, "deve ter no minimo 8 caracters")
 });
-const singIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const singIn = async (req, res) => {
     res.sendFile(path_1.default.join(__dirname, '../../../../pageLogin.html'));
     try {
-        const usuario = yield schema.validate(req.body);
+        const usuario = await schema.validate(req.body);
         if (usuario) {
-            const getUser = yield usuarios_1.usuariosProvider.getByUser(usuario.Email, usuario.senha);
+            const getUser = await usuarios_1.usuariosProvider.getByUser(usuario.Email, usuario.senha);
             if (getUser instanceof Error) {
                 return res.status(404).json({
                     errors: {
@@ -71,7 +62,7 @@ const singIn = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
     }
     catch (error) {
-        console.log('error em login');
+        console.log('error em login', error);
     }
-});
+};
 exports.singIn = singIn;

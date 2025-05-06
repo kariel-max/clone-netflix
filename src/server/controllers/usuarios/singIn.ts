@@ -28,6 +28,6 @@ export const singIn = async (req: Request ,res: Response)=> {
             console.log(getUser instanceof Error)
          }
     }catch (error) {
-        console.log('error em login')
+        console.log('error em login', error)
     }
 }

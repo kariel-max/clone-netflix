@@ -35,4 +35,6 @@ var __importStar = (this && this.__importStar) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.usuariosProvider = void 0;
 const getByEmail = __importStar(require("./GetByUser"));
-exports.usuariosProvider = Object.assign({}, getByEmail);
+exports.usuariosProvider = {
+    ...getByEmail,
+};

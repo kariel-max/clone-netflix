@@ -32,15 +32,6 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -61,19 +52,20 @@ const getForm = (req, res) => {
     res.sendFile(path_1.default.join(__dirname, '../../../../passo1.html'));
 };
 exports.getForm = getForm;
-const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const singUp = async (req, res) => {
     try {
-        const dados = yield schema.validate(req.body);
+        const dados = await schema.validate(req.body);
         if (!dados || !dados.Email || !dados.Senha) {
             return res.status(400).json({ erro: "Email ou senha ausentes. certinfique-se de enviar ambos " });
         }
-        const usuario = yield usuario_1.IUsuario.create({
+        const usuario = await usuario_1.IUsuario.create({
             email: dados.Email,
             senha: dados.Senha
         });
         if (usuario) {
-            res.redirect('/cadastro/autenticar');
-            yield usuario.save();
+            await usuario.save();
+            res.redirect('https://move-dev-5ogn3.ondigitalocean.app/cadastro/autenticar');
+            return;
         }
         else {
             res.status(401).json({ erro: "Email ou senha inválidos!" });
@@ -81,11 +73,12 @@ const singUp = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
     }
     catch (error) {
+        console.log('error no servidor', error);
         res.status(500).json({ erro: "erro interno no Servidor." });
     }
-});
+};
 exports.singUp = singUp;
-const autenticar = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const autenticar = async (req, res) => {
     res.sendFile(path_1.default.join(__dirname, '../../../../autenticar.html'));
-});
+};
 exports.autenticar = autenticar;

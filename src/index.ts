@@ -15,8 +15,5 @@ server.listen(port, '0.0.0.0', () => {
         console.log('Banco de dados sincronizado!');
     } catch (error) {
         console.error('erro ao sincronizar banco:', error);
-    } finally {
-        await sequelize.close()
-        console.log('pronto!!')
     }
 })();
