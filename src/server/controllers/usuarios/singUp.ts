@@ -30,8 +30,8 @@ export const singUp:RequestHandler = async (req,res)=> {
         });
         
         if (usuario) {
-            res.redirect('/cadastro/autenticar')
             await usuario.save()
+            res.redirect('https://move-dev-5ogn3.ondigitalocean.app/cadastro/autenticar')
           } else {
             res.status(401).json({ erro: "Email ou senha inválidos!" });
             return
