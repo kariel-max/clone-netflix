@@ -9,14 +9,14 @@ require("dotenv/config");
 const routes_1 = require("./routes");
 const path_1 = __importDefault(require("path"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const cors_1 = __importDefault(require("cors"));
 const server = (0, express_1.default)();
 exports.server = server;
-server.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*"); // Ou especifique o domínio correto
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    next();
-});
+server.use((0, cors_1.default)({
+    origin: 'https://move-dev-5ogn3.ondigitalocean.app', // Apenas essa origem pode acessar
+    methods: ['GET', 'POST'], // Métodos permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'] // Cabeçalhos permitidos
+}));
 server.use(body_parser_1.default.json());
 server.use(body_parser_1.default.urlencoded({ extended: true }));
 server.use('public', express_1.default.static(path_1.default.join(__dirname, 'public')));
