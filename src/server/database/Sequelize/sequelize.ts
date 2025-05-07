@@ -13,6 +13,14 @@ const sequelize = new Sequelize({
             require: true,
             rejectUnauthorized: false,
         },
+        options: {
+            charset: 'CP932',
+            collate: 'Japanese_CS_AS_KS_WS'
+        }
     },
+    define: {
+        charset: 'cp932',
+        collate: 'Japanese_CS_AS_KS_WS'
+    }
 })
 export default (sequelize)
