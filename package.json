@@ -8,8 +8,7 @@
     "lint": "eslint .",
     "build": "npm run lint && node index.js",
     "devts": "nodemon -e ts,json src/index.ts",
-    "start": "node --experimental-modules index.js",
-    "production": "nodemon -e js,json,html build/src/index.js",
+    "start": "node index.js",
     "preproduction": "tsc"
   },
   "author": "Kariel Emanoel Silva Martins",

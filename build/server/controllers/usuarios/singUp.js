@@ -32,24 +32,20 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.autenticar = exports.singUp = exports.getForm = exports.cadastro = void 0;
 const yup = __importStar(require("yup"));
 const usuario_1 = require("../../database/models/usuario");
-const path_1 = __importDefault(require("path"));
 const schema = yup.object().shape({
     Email: yup.string().required('Campo email é obrigatório').email("Deve ser um email válido"),
     Senha: yup.string().required("campo senha obrigatorio").min(4, "precisar de no mínimo 4 digítos")
 });
 const cadastro = (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../../../../cadastro.html'));
+    console.log('cadastro!');
 };
 exports.cadastro = cadastro;
 const getForm = (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../../../../passo1.html'));
+    console.log('getform!');
 };
 exports.getForm = getForm;
 const singUp = async (req, res) => {
@@ -79,6 +75,6 @@ const singUp = async (req, res) => {
 };
 exports.singUp = singUp;
 const autenticar = async (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../../../../autenticar.html'));
+    console.log("autenticar!");
 };
 exports.autenticar = autenticar;

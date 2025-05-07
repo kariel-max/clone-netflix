@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import * as yup from "yup"
 import { usuariosProvider } from "../../database/providers/usuarios";
-import path from "path";
-
 
 // construir uma validaçao de email e senha
 
@@ -12,7 +10,6 @@ const schema = yup.object().shape({
 })
 
 export const singIn = async (req: Request ,res: Response)=> {
-    res.sendFile(path.join(__dirname,'../../../../pageLogin.html'))
     try {
          const usuario = await schema.validate(req.body)
          if (usuario) {
